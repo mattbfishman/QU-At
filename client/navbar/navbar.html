@@ -12,8 +12,13 @@
         </div>
             <div class="collapse navbar-collapse" id="navigationbar">
               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{pathFor route='signup'}}">Sign Up</a></li>
-                    <li><a href="{{pathFor route='login'}}">Login</a></li>
+              		{{#if currentUser}}
+              			<li><a href="#" class="logout">Log Out</a></li>
+              		{{else}}
+                    	<li><a href="{{pathFor route='signup'}}">Sign Up</a></li>
+                    	<li><a href="{{pathFor route='login'}}">Login</a></li>
+                    {{/if}}
+
               </ul>
             </div>
         </div>

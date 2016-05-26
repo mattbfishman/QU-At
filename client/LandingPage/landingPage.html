@@ -5,8 +5,12 @@
 	<div class="container-fluid">
 			<div class="row">
 				<div class="landing-header col-sm-12">
+					{{#if currentUser}}
+					<h1>Welcome User</h1>
+					{{else}}
 					<h1>Welcome to QU-At!</h1>
 					<h2>Sign up or login in today!</h2>
+					{{/if}}
 				</div>
 			</div>
 		</div>
