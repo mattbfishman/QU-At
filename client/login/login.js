@@ -4,5 +4,8 @@ Template.login.events({
         var emailVar = event.target.loginEmail.value;
         var passwordVar = event.target.loginPassword.value;
         Meteor.loginWithPassword(emailVar, passwordVar);
+        if(Meteor.userId()){
+			this.next();
+		}
     }
 });
