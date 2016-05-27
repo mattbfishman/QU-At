@@ -24,3 +24,14 @@ Router.route('login', {name : "login",
 		}
 	}
 });
+
+Router.route('settings', {name : "settings",
+	onBeforeAction: function() {
+		if(Meteor.userId()){
+			this.next();
+		}
+		else{
+			Router.go("landingPage");
+		}
+	}
+});

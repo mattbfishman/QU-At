@@ -1,9 +1,11 @@
 <template name="sidebar">
-	<b>Settings</b>
+    <a href="{{pathFor route='landingPage'}}">QU-At</a>
 	<hr>
-	<b>Groups:</b>
-	<br>
-	<b>Create New Group</b>
+	<a href="{{pathFor route='settings'}}">Settings</a>
 	<hr>
-	<button type="submit" class="btn btn-danger"><b>Log Out</b></button>
+	Groups:
+	<hr>
+	New Group
+	<hr>
+	<button type="submit" class="log-out btn btn-danger"><b>Log Out</b></button>
 </template>
