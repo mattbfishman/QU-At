@@ -66,15 +66,25 @@ body{
   background-color: #292828;  
 }
 
+.name{
+  color: cyan;
+}
+
+span{
+  cursor: default;
+}
+
 .chatarea{
   height: 68vh !important;
   text-align: left;
   padding-left: 20px;
+  font-size: 12px;
 }
 
 .form-control[disabled] {
   background-color: black;
   color: green;
+  cursor: default;
 }
 
 .friends{

@@ -21,9 +21,6 @@ Template.settings.events(({
     let id = Meteor.userId();
     let name = template.find('#name').value;
 
-    console.log(name);
-    console.log(id);
-
     Meteor.call('editAccount', id, name);
   },
 

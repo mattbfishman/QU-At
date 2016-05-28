@@ -1,5 +1,11 @@
 <template name="sidebar">
-    <a href="{{pathFor route='landingPage'}}">QU-At</a>
+	{{#if accountExists}}
+	{{#with accountFind}}
+	<p>Welcome: <span class="name">{{name}}</span>!</p>
+	<hr>
+	{{/with}}
+	{{/if}}
+    <a href="{{pathFor route='landingPage'}}">Main Chatroom</a>
 	<hr>
 	<a href="{{pathFor route='settings'}}">Settings</a>
 	<hr>
