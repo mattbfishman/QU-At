@@ -56,6 +56,34 @@ body{
 	width: 25vw;
 	text-align: left;
 }
+.newGroup{
+  text-align: center;
+}
+.chatbox{
+  height: 100vh;
+  width: 75vw;
+  text-align: center;
+  background-color: #292828;  
+}
+
+.chatarea{
+  height: 68vh !important;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.form-control[disabled] {
+  background-color: black;
+  color: green;
+}
+
+.friends{
+  height: 100vh;
+  width: 25vw;
+  text-align: center;
+  background-color: gray;
+
+}
 .navbar .navbar-nav {
   display: inline-block;
   float: none;

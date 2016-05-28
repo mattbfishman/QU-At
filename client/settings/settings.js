@@ -1,0 +1,30 @@
+Template.settings.onCreated( function() {
+    Meteor.subscribe('Allaccounts');
+});
+
+Template.settings.helpers({
+  'accountFind': function(){
+    let id = Meteor.userId();
+    let account = Account.find({accountId: id}).fetch();
+    return account[0];
+  },
+  'accountExists': function(){
+    let id = Meteor.userId();
+    let account = Account.findOne({accountId: id});
+    if(!account) return false;
+    return true;
+  }
+});
+
+Template.settings.events(({
+  'click .save': function(event, template) {
+    let id = Meteor.userId();
+    let name = template.find('#name').value;
+
+    console.log(name);
+    console.log(id);
+
+    Meteor.call('editAccount', id, name);
+  },
+
+}));
