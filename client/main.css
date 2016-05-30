@@ -77,10 +77,18 @@ span{
 .chatarea{
   height: 68vh !important;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 5px;
   font-size: 12px;
-}
+  background-color: black;
+  color: green;
+  overflow: auto;
+  word-wrap: break-word;
 
+}
+.chatNames{
+  text-align: left;
+  color: cyan;
+}
 .form-control[disabled] {
   background-color: black;
   color: green;

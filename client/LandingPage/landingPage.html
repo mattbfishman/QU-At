@@ -6,11 +6,33 @@
 				{{> sidebar}}
 			</div>
 			{{#if mainChat}}
-				<div class="chatbox col-sm-9" id="#{{getId}}">
-					{{> chatbox}}
+				<div class="chatbox col-sm-9" id="{{getId}}">
+					<h1>Main Chat Room</h1>
+				<hr>
+				<div class="chatarea " id="chatarea{{getId}}" contenteditable="false">
+				  	{{#each getMessage}}
+						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages">{{message}}</span>
+						<br>
+				  	{{/each}}
+				</div>
+				<br>
+
+<!-- 				  	<textarea class="chatarea form-control" disabled id="chatarea{{getId}}">
+
+					</textarea> -->
+				<div class="chatform form-group">
+					<input type="text" placeholder="Enter a message" class="form-control" id="chatinput{{getId}}">
+				</div>
 				</div>
 			{{/if}}
-			{{> chatlist}}
+		<div class="friends col-sm-3" id="{{getId}}">
+		<h3>In This Chat</h3>
+		<hr>
+		{{#each getMainUsers}}
+			<span class="chatNames">{{name}}</span>
+			<br>
+		{{/each}}
+	</div>
 		</div>
 	</div>
 	{{else}}

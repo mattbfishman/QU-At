@@ -22,6 +22,6 @@ Template.settings.events(({
     let name = template.find('#name').value;
 
     Meteor.call('editAccount', id, name);
-  },
+    },
 
 }));
