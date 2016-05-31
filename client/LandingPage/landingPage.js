@@ -46,4 +46,5 @@ Template.landingPage.helpers({
   		return users;
   	},
 
-})
+});
+

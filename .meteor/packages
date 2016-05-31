@@ -21,3 +21,4 @@ twbs:bootstrap
 iron:router
 accounts-ui
 accounts-password
+risul:bootstrap-colorpicker

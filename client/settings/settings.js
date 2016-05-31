@@ -24,4 +24,8 @@ Template.settings.events(({
     Meteor.call('editAccount', id, name);
     },
 
+    'click #cp2':function(event){
+        $('#cp2').colorpicker();
+    }
+
 }));
