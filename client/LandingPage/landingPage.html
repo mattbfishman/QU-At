@@ -8,10 +8,11 @@
 			{{#if mainChat}}
 				<div class="chatbox col-sm-9" id="{{getId}}">
 					<h1>Main Chat Room</h1>
-				<hr>
+<!-- 					 <button type="button" id="red" class="btn btn-danger">Red</button>
+ -->				<hr>
 				<div class="chatarea " id="chatarea{{getId}}" contenteditable="false">
 				  	{{#each getMessage}}
-						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages">{{message}}</span>
+						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages" id="messageColor">{{message}}</span>
 						<br>
 				  	{{/each}}
 				</div>

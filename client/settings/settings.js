@@ -1,5 +1,6 @@
 Template.settings.onCreated( function() {
     Meteor.subscribe('Allaccounts');
+    Meteor.subscribe('Allmessages')
 });
 
 Template.settings.helpers({
@@ -20,7 +21,6 @@ Template.settings.events(({
   'click .save': function(event, template) {
     let id = Meteor.userId();
     let name = template.find('#name').value;
-
     Meteor.call('editAccount', id, name);
     },
 

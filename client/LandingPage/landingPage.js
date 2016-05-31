@@ -17,6 +17,11 @@ Template.landingPage.events({
         event.currentTarget.value = "";
       }
     },
+
+    // 'click #red': function(event) {
+    // 	console.log("HERE");
+   	// 	$("#messageColor").css("color", "red");
+    // },
   });
 
 Template.landingPage.helpers({
