@@ -9,10 +9,10 @@
 					<h1>{{getName}}<!-- <button type="button" class="join btn btn-success">Join</button> --></h1>
 				<hr>
 				<div class="chatarea " id="chatarea" contenteditable="false">
-				  	<!-- {{#each getMessage}}
+				  	{{#each getMessage}}
 						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages" id="messageColor">{{message}}</span>
 						<br>
-				  	{{/each}} -->
+				  	{{/each}}
 				</div>
 				<br>
 
@@ -20,11 +20,11 @@
 
 					</textarea> -->
 				<div class="chatform form-group">
-					<input type="text" placeholder="Enter a message" class="form-control" id="chatinput{{getId}}">
+					<input type="text" placeholder="Enter a message" class="form-control" id="chatinput">
 				</div>
 
 				</div>
-		<div class="friends col-sm-3" id="{{getId}}">
+		<div class="friends col-sm-3" id="friends">
 		<h3>In This Chat</h3>
 		<hr>
 	</div>

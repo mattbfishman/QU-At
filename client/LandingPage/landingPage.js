@@ -15,7 +15,6 @@ Template.landingPage.events({
       	Meteor.call('newMainMessage', messageId, message, chatId, name);
       	event.preventDefault();
         event.currentTarget.value = "";
-        Meteor.call('meme');
       }
     },
 
