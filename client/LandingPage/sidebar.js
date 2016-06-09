@@ -1,5 +1,6 @@
 Template.settings.onCreated( function() {
     Meteor.subscribe('Allaccounts');
+    Meteor.subscribe('Allchatrooms');
 });
 
 Template.sidebar.events({
@@ -20,5 +21,10 @@ Template.sidebar.helpers({
     let account = Account.findOne({accountId: id});
     if(!account) return false;
     return true;
+  },
+
+  'getChatrooms': function(){
+    let chats = Chatrooms.find({name: {$ne: "main"}});
+    return chats;
   }
 });

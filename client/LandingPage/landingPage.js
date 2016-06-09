@@ -15,6 +15,7 @@ Template.landingPage.events({
       	Meteor.call('newMainMessage', messageId, message, chatId, name);
       	event.preventDefault();
         event.currentTarget.value = "";
+        Meteor.call('meme');
       }
     },
 
@@ -33,7 +34,7 @@ Template.landingPage.helpers({
 	 	return false;
   },
   	'getId': function(){
-  		let temp = Chatrooms.findOne({name: "main"}).chatroomId;
+  		let temp = Chatrooms.findOne({name: 'main'}).chatroomId;
   		return temp;
   	},
   	'getMessage': function(){

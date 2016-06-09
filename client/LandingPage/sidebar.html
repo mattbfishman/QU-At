@@ -10,6 +10,13 @@
 	<a href="{{pathFor route='settings'}}">Settings</a>
 	<hr>
 	Groups:
+		<br>
+		<div class="chatnames">
+			{{#each getChatrooms}}
+				<a href="{{pathFor route='chatShow'}}">{{name}}</a>
+				<br>
+			{{/each}}
+		</div>
 	<hr>
 	<a href="{{pathFor route='newGroup'}}">New Group</a>
 	<hr>

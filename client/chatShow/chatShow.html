@@ -1,20 +1,18 @@
-<template name="landingPage">
+<template name="chatShow">
 	{{#if currentUser}}
 	<div class="row">
-		<div class="landing-header col-sm-12">
+		<div class="chatShow col-sm-12">
 			<div class="sidebar collapse col-sm-3" id="sidebar">
 				{{> sidebar}}
 			</div>
-			{{#if mainChat}}
-				<div class="chatbox col-sm-9" id="{{getId}}">
-					<h1>Main Chat Room</h1>
-<!-- 					 <button type="button" id="red" class="btn btn-danger">Red</button>
- -->				<hr>
-				<div class="chatarea " id="chatarea{{getId}}" contenteditable="false">
-				  	{{#each getMessage}}
+				<div class="chatbox col-sm-9">
+					<h1>{{getName}}<!-- <button type="button" class="join btn btn-success">Join</button> --></h1>
+				<hr>
+				<div class="chatarea " id="chatarea" contenteditable="false">
+				  	<!-- {{#each getMessage}}
 						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages" id="messageColor">{{message}}</span>
 						<br>
-				  	{{/each}}
+				  	{{/each}} -->
 				</div>
 				<br>
 
@@ -26,14 +24,9 @@
 				</div>
 
 				</div>
-			{{/if}}
 		<div class="friends col-sm-3" id="{{getId}}">
 		<h3>In This Chat</h3>
 		<hr>
-		{{#each getMainUsers}}
-			<span class="chatNames">{{name}}</span>
-			<br>
-		{{/each}}
 	</div>
 		</div>
 	</div>
