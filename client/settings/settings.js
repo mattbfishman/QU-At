@@ -1,6 +1,9 @@
 Template.settings.onCreated( function() {
     Meteor.subscribe('Allaccounts');
     Meteor.subscribe('Allmessages');
+    Meteor.subscribe('userStatus');
+    Meteor.subscribe('userStatus');
+
 });
 
 Template.settings.helpers({
@@ -46,6 +49,9 @@ Template.settings.events(({
     
     Meteor.call('editAccount', id, name, nameColor, textColor);
     Meteor.call('updateMessages', id, name);
+    Meteor.call('updateName', id, name);
+    Meteor.call('updateNameColor', id, nameColor);
+    Meteor.call('updateTextColor', id, textColor);
     },
 
     'click #textColor':function(event){

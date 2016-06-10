@@ -6,8 +6,6 @@ Template.userPill.onCreated( function() {
 
 Template.userPill.helpers({
 	'getUsers': function(){
-  	Meteor.users.find({ "status.online": true });
-  	console.log(id);
   	return Meteor.users.find({ "status.online": true });
   },
 

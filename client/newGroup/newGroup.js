@@ -8,9 +8,13 @@ Template.newGroup.events(({
     let id = Meteor.userId();
     let name = template.find('#name').value;
 	    if(name != ""){
-		    console.log(name);
-		    console.log(id);
-		    Meteor.call('newChat', id, name);
+	    	let exists = Chatrooms.findOne({"name": name});
+		   	if(exists){
+		   		alert("Group already exists");
+		   	}
+		   	else{
+		   		Meteor.call('newChat', id, name);
+		   	}
 		}
 		else{
 			alert("Name cannot be blank");

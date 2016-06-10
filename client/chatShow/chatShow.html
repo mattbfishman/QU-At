@@ -1,12 +1,13 @@
 <template name="chatShow">
 	{{#if currentUser}}
+	{{#if joined}}
 	<div class="row">
 		<div class="chatShow col-sm-12">
 			<div class="sidebar collapse col-sm-3" id="sidebar">
 				{{> sidebar}}
 			</div>
 				<div class="chatbox col-sm-9">
-					<h1>{{getName}}<!-- <button type="button" class="join btn btn-success">Join</button> --></h1>
+					<h1>{{getName}} <button type="button" class="leave btn btn-danger">Leave</button></h1>
 				<hr>
 				<div class="chatarea " id="chatarea" contenteditable="false">
 				  	{{#each getMessage}}
@@ -30,6 +31,19 @@
 	</div>
 		</div>
 	</div>
+	{{else}}
+		<div class="row">
+		<div class="chatShow col-sm-12">
+			<div class="sidebar collapse col-sm-3" id="sidebar">
+				{{> sidebar}}
+			</div>
+		<h1>{{getName}}</h1>
+		<h3>Join this chat: <button type="button" class="join btn btn-lg btn-success">Join</button></h3>
+		<hr>
+	</div>
+</div>
+
+	{{/if}}
 	{{else}}
 	<div class="row">
 		<div class="landing-header col-sm-12">

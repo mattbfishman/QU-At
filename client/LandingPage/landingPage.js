@@ -2,7 +2,7 @@ Template.landingPage.onCreated( function() {
       Meteor.subscribe('Allmessages');
       Meteor.subscribe('Allaccounts');
       Meteor.subscribe('Allchatrooms');
-
+      Meteor.subscribe('userStatus');
 });
 
 Template.landingPage.events({
@@ -19,10 +19,6 @@ Template.landingPage.events({
       }
     },
 
-    // 'click #red': function(event) {
-    // 	console.log("HERE");
-   	// 	$("#messageColor").css("color", "red");
-    // },
   });
 
 Template.landingPage.helpers({
@@ -42,10 +38,24 @@ Template.landingPage.helpers({
   		return message;
 
   	},
-  	'getMainUsers' : function(){
-  		let users = Account.find().fetch();
+  	'getOnlineUsers' : function(){
+  		let users = Meteor.users.find({ "status.online": true });
   		return users;
   	},
+    'getOfflineUsers' : function(){
+      let users = Meteor.users.find({ "status.online": false });
+      return users;
+    },
+    'getNameColor': function(){
+      let id = Meteor.userId();
+      let color = Account.findOne({accountId: id}).nameColor;
+      return color;
+    },
+    'getTextColor': function(){
+      let id = Meteor.userId();
+      let color = Account.findOne({accountId: id}).textColor;
+      return color;
+    }
 
 });
 

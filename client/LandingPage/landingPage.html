@@ -8,19 +8,14 @@
 			{{#if mainChat}}
 				<div class="chatbox col-sm-9" id="{{getId}}">
 					<h1>Main Chat Room</h1>
-<!-- 					 <button type="button" id="red" class="btn btn-danger">Red</button>
- -->				<hr>
+					<hr>
 				<div class="chatarea" id="chatarea{{getId}}" contenteditable="false">
 				  	{{#each getMessage}}
-						<span class="chatNames"><b>{{name}}</b></span> : <span class="messages" id="messageColor">{{message}}</span>
+						<span class="chatNames" style="color:{{getNameColor}}"><b>{{name}}</b></span> : <span class="messages" style="color:{{getTextColor}}">{{message}}</span>
 						<br>
 				  	{{/each}}
 				</div>
 				<br>
-
-<!-- 				  	<textarea class="chatarea form-control" disabled id="chatarea{{getId}}">
-
-					</textarea> -->
 				<div class="chatform form-group">
 					<input type="text" placeholder="Enter a message" class="form-control" id="chatinput{{getId}}">
 				</div>
@@ -28,19 +23,32 @@
 				</div>
 			{{/if}}
 		<div class="friends col-sm-3" id="{{getId}}">
-		<h3>In This Chat</h3>
+		<div class="onlineArea" contenteditable="false">
+			<hr>
+			<h5 class="online"><b>Online:</b></h5>
+			<hr>
+			{{#each getOnlineUsers}}
+				<span class="onlineChatNames">{{name}}</span>
+				<br>
+			{{/each}}
+		</div>
 		<hr>
-		{{#each getMainUsers}}
-			<span class="chatNames">{{name}}</span>
-			<br>
-		{{/each}}
+
+		<div class="offlineArea" contenteditable="false">
+			<h5 class="offline">Offline:</h5>
+			<hr>
+			{{#each getOfflineUsers}}
+				<span class="offlineChatNames">{{name}}</span>
+				<br>
+			{{/each}}
+		</div>
 	</div>
 		</div>
 	</div>
 	{{else}}
 	<div class="row">
 		<div class="landing-header col-sm-12">
-			<h1>Welcome to QU-At!</h1>
+			<h1>Welcome to quat!</h1>
 			<h2>Sign up or login in today!</h2>
 		</div>
 	</div>

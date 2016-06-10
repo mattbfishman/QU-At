@@ -6,6 +6,25 @@ html{
   padding: 0px;
   overflow-x: hidden;
 }
+
+.onlineChatNames:before{
+  content: "• ";
+  color : green;
+  text-align: left;
+}
+.offlineChatNames:before{
+  content: "• ";
+  color: red;
+}
+.onlineArea, .offlineArea{
+  height: 45vh;
+  text-align: center;
+  padding-left: 5px;
+  font-size: 16px;
+  background-color: gray;
+  overflow: auto;
+  word-wrap: break-word;
+}
 .settings-content{
   text-align: center;
 }
