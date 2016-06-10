@@ -1,6 +1,6 @@
 Template.settings.onCreated( function() {
     Meteor.subscribe('Allaccounts');
-    Meteor.subscribe('Allmessages')
+    Meteor.subscribe('Allmessages');
 });
 
 Template.settings.helpers({
@@ -14,18 +14,46 @@ Template.settings.helpers({
     let account = Account.findOne({accountId: id});
     if(!account) return false;
     return true;
+  },
+  'getNameColor': function(){
+    let id = Meteor.userId();
+    let color = Account.findOne({accountId: id}).nameColor;
+    return color;
+  },
+  'getTextColor': function(){
+    let id = Meteor.userId();
+    let color = Account.findOne({accountId: id}).textColor;
+    return color;
   }
 });
 
 Template.settings.events(({
   'click .save': function(event, template) {
     let id = Meteor.userId();
-    let name = template.find('#name').value;
-    Meteor.call('editAccount', id, name);
+    let name = template.find('#name').value; 
+    try {
+      nameColor = ($('#nameColor').colorpicker('getValue'));
+    }
+    catch(err) {
+      nameColor = Account.findOne({accountId: id}).textColor;
+    }
+    try {
+      textColor = ($('#textColor').colorpicker('getValue'));
+    }
+    catch(err) {
+      textColor = Account.findOne({accountId: id}).textColor;
+    }
+    
+    Meteor.call('editAccount', id, name, nameColor, textColor);
+    Meteor.call('updateMessages', id, name);
     },
 
-    'click #cp2':function(event){
-        $('#cp2').colorpicker();
+    'click #textColor':function(event){
+        $('#textColor').colorpicker();
+    },
+
+    'click #nameColor':function(event){
+        $('#nameColor').colorpicker();
     }
 
 }));

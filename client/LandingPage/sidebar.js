@@ -26,5 +26,11 @@ Template.sidebar.helpers({
   'getChatrooms': function(){
     let chats = Chatrooms.find({name: {$ne: "main"}});
     return chats;
-  }
+  },
+
+  'getNameColor': function(){
+    let id = Meteor.userId();
+    let color = Account.findOne({accountId: id}).nameColor;
+    return color;
+    }
 });

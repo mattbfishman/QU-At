@@ -1,24 +1,26 @@
 <template name="sidebar">
 	{{#if accountExists}}
 	{{#with accountFind}}
-	<p><span class="name">{{name}}</span></p>
+	<p class="name" style="color:{{getNameColor}}">{{name}}</p>
 	<hr>
 	{{/with}}
 	{{/if}}
     <a href="{{pathFor route='landingPage'}}">Main Chatroom</a>
 	<hr>
-	<a href="{{pathFor route='settings'}}">Settings</a>
+	<a href="{{pathFor route='settings'}}">Account Settings</a>
 	<hr>
 	Groups:
 		<br>
-		<div class="chatnames">
+		<div class="groupArea" id="groupArea" contenteditable="false">
 			{{#each getChatrooms}}
-				<a href="{{pathFor route='chatShow'}}">{{name}}</a>
+				<a href="{{pathFor route='chatShow'}}">{{name}}</a> 
 				<br>
 			{{/each}}
 		</div>
 	<hr>
 	<a href="{{pathFor route='newGroup'}}">New Group</a>
+	<hr>
+	<a href="{{pathFor route=''}}">Manage Groups</a>
 	<hr>
 	Friends
 	<hr>
