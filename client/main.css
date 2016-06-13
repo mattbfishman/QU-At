@@ -140,15 +140,25 @@ span{
 @media (max-width: 768px) {
 	.sidebar{
 		font-size: 16px;
+    height: 100vh;
+    width: 100vw;
 
 	}
   .chatbox{
-    height: 100vh;
-    width: 50vw;
+    height: 50vh;
+    width: 70vw !important;
+    position: absolute;
+    min-width: 65%;
+    min-height: 100% !important;
+  }
+  .chatarea{
+    height: 90% !important;
   }
   .friends{
-    height: 50vh;
-    width: 40vw !important;
+    height: 100vh;
+    width: 33vw !important;
+    margin-left: 67vw;
+    position: absolute;
   }
 }
 .navbar-default {
