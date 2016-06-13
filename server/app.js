@@ -24,12 +24,5 @@ Meteor.methods({
     'joinGroup'(newId, setObject){
         Account.update({_id:newId}, {$set:setObject});
     },
-    'joined'(newId, joinedObject){
-        Account.findOne({
-            $and:[
-            {_id:newId},
-            {joinedObject}
-            ]});
-    }
 
 });

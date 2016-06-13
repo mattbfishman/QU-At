@@ -2,6 +2,8 @@ Template.chatShow.onCreated( function() {
       Meteor.subscribe('Allmessages');
       Meteor.subscribe('Allaccounts');
       Meteor.subscribe('Allchatrooms');
+      Meteor.subscribe('userStatus');
+
 });
 
 Template.chatShow.events({
@@ -25,36 +27,64 @@ Template.chatShow.events({
       let name = Chatrooms.findOne({_id: chatId}).name;
       let newId = Account.findOne({accountId: id})._id;
       let setObject = {};
-      setObject[name] = "joined";
-      Meteor.call('joinGroup', newId, setObject)
+      setObject[name] = true;
+      console.log(setObject);
+      Meteor.call('joinGroup', newId, setObject);
+   },
+
+   'click .leave':function(event){
+      let answer = confirm("Are you sure you want to leave?");
+      if(answer == true){
+        let id = Meteor.userId();
+        let chatId = this._id;
+        let name = Chatrooms.findOne({_id: chatId}).name;
+        let newId = Account.findOne({accountId: id})._id;
+        let setObject = {};
+        setObject[name] = false;
+        console.log(setObject);
+        Meteor.call('joinGroup', newId, setObject);
+      }
    }
 
   });
 
 Template.chatShow.helpers({
-	'getName': function(){
-  		let id = this._id;
-		  return Chatrooms.findOne({_id: id}).name;
-	},
-
 	'getMessage': function(){
-		let id = this._id;
-  		let message = Messages.find({chatId: id});
-  		return message;
+		  let id = this._id;
+  	  let message = Messages.find({chatId: id});
+  	return message;
   	},
   
   'joined': function(){
-    let id = Meteor.userId();
-    let chatId = this._id;
-    let name = Chatrooms.findOne({_id: chatId}).name;
-    let newId = Account.findOne({accountId: id})._id;
-    let joinedObject = {};
-    joinedObject[name] = "joined";
-    let exists = Meteor.call('joined', newId, joinedObject)
-    if(exists){
-      console.log("HERE");
-      return true;
-    }
+      let id = Meteor.userId();
+      let newId = Account.findOne({accountId: id})._id;
+      let chatId = this._id;
+      let name = Chatrooms.findOne({_id: chatId}).name;
+      let idObject = {};
+      let joniedObject = {};
+      idObject["_id"] = newId;
+      joniedObject[name] = true;
+      let exists = Account.findOne({$and:[ joniedObject, idObject ]});
+      if(exists)
+        return true;
+      else 
+        return false;
   },
 
+  'getOnline':function(){
+      return null;
+  },
+  'getOffline':function(){
+      return null;
+  },
+  'getNameColor': function(){
+    let id = Meteor.userId();
+    let color = Account.findOne({accountId: id}).nameColor;
+    return color;
+  },
+  'getTextColor': function(){
+    let id = Meteor.userId();
+    let color = Account.findOne({accountId: id}).textColor;
+    return color;
+    }
 });

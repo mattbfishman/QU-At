@@ -9,7 +9,7 @@ html{
 
 .onlineChatNames:before{
   content: "• ";
-  color : green;
+  color : lime;
   text-align: left;
 }
 .offlineChatNames:before{
