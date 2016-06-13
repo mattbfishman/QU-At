@@ -16,7 +16,7 @@ Template.chatShow.events({
       	Meteor.call('newMainMessage', messageId, message, chatId, name);
       	event.preventDefault();
         event.currentTarget.value = "";  
-        $('#chatarea0').scrollTop( $('#chatarea0').prop("scrollHeight"));
+        $('#chatarea').scrollTop( $('#chatarea').prop("scrollHeight"));
     
       }
     },
