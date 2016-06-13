@@ -1,10 +1,30 @@
 <template name ="manageGroups">
-	<div class="row">
-		<div class="manageGroups col-sm-12">
-			<div class="sidebar collapse col-sm-3" id="sidebar">
-				{{> sidebar}}
+	<div class="container-fluid">
+			<div class="row">
+				<div class="sidebar collapse col-sm-3" id="sidebar">
+					{{> sidebar}}
+				</div>
+			<div class="manageGroups-content col-sm-12">
+				<h1>Manage Groups</h1>
+				<div class="manageGroups panel-group col-sm-10 col-sm-offset-1">
+				  <div class="manageGroups panel panel-default">
+				    <div class="groups-heading panel-heading">
+				      <h4 class="manageGroups panel-title">
+				        <a data-toggle="collapse" href="#groups">Your groups</a>
+				      </h4>
+				    </div>
+				    <div id="groups" class="manageGroups panel-collapse collapse">
+				      <div class="manageGroups-body panel-body">
+				      		{{#each getGroups}}
+				      			<span class="manageGroups-name col-sm-1 col-sm-offset-1"> {{name}}</span>
+				      			<button class="btn btn-xs delete btn-danger col-sm-1 col-sm-offset-9">Delete</button>
+				      			<span class="manageGroups-hr"><hr></span>
+				      		{{/each}}
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<h1>Manage Groups(COMING SOON)</h1>
 </template>

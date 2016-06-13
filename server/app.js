@@ -28,5 +28,11 @@ Meteor.methods({
       Meteor.users.update({"_id": id},
         {$set: setGroup});
     },
+    'removeGroup'(setObject){
+        Account.update({},{$unset: setObject},{multi:true}); 
+    },
+    'deleteGroup'(groupId){
+        Chatrooms.remove({"_id": groupId});
+    }
 
 });

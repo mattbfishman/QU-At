@@ -29,7 +29,6 @@ Template.chatShow.events({
       let newId = Account.findOne({accountId: id})._id;
       let setObject = {};
       setObject[name] = true;
-      console.log(setObject);
       Meteor.call('joinGroup', newId, setObject);
       Meteor.call('updateGroup', id, setObject);
    },
@@ -43,7 +42,6 @@ Template.chatShow.events({
         let newId = Account.findOne({accountId: id})._id;
         let setObject = {};
         setObject[name] = false;
-        console.log(setObject);
         Meteor.call('joinGroup', newId, setObject);
         Meteor.call('updateGroup', id, setObject);
       }
@@ -79,7 +77,6 @@ Template.chatShow.helpers({
       let name = Chatrooms.findOne({_id: chatId}).name;
       let joinedObject = {};
       joinedObject[name] = true;
-      console.log(joinedObject);
       let exists = Meteor.users.find({$and:[{ "status.online": true }, joinedObject]});
       return exists;
         
@@ -89,7 +86,6 @@ Template.chatShow.helpers({
       let name = Chatrooms.findOne({_id: chatId}).name;
       let joinedObject = {};
       joinedObject[name] = true;
-      console.log(joinedObject);
       let exists = Meteor.users.find({$and:[{ "status.online": false }, joinedObject]});
       return exists;
   },
