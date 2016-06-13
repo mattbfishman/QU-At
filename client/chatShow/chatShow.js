@@ -13,7 +13,8 @@ Template.chatShow.events({
       	let message = $("#chatinput").val();
       	let messageId = Meteor.userId();
       	let name = Account.findOne({accountId : messageId}).name;
-      	Meteor.call('newMainMessage', messageId, message, chatId, name);
+        let date = Date().toString().substring(4,24);
+      	Meteor.call('newMainMessage', messageId, message, chatId, name, date);
       	event.preventDefault();
         event.currentTarget.value = "";  
         $('#chatarea').scrollTop( $('#chatarea').prop("scrollHeight"));

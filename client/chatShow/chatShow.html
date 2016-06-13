@@ -10,7 +10,8 @@
 				<hr>
 				<div class="chatarea " id="chatarea" contenteditable="false">
 				  	{{#each getMessage}}
-						<span class="chatNames" style="color:{{getNameColor}}"><b>{{name}}</b></span> : <span class="messages" id="messageColor" style="color:{{getTextColor}}">{{message}}</span>
+						<span class="messages" id="messageColor" style="color:{{getTextColor}}">({{date}}) </span>
+						 <span class="chatNames" style="color:{{getNameColor}}"><b>{{name}}</b></span> : <span class="messages" id="messageColor" style="color:{{getTextColor}}">{{message}}</span>
 						<br>
 				  	{{/each}}
 				</div>
