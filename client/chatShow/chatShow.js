@@ -30,6 +30,7 @@ Template.chatShow.events({
       setObject[name] = true;
       console.log(setObject);
       Meteor.call('joinGroup', newId, setObject);
+      Meteor.call('updateGroup', id, setObject);
    },
 
    'click .leave':function(event){
@@ -43,6 +44,7 @@ Template.chatShow.events({
         setObject[name] = false;
         console.log(setObject);
         Meteor.call('joinGroup', newId, setObject);
+        Meteor.call('updateGroup', id, setObject);
       }
    }
 
@@ -72,10 +74,23 @@ Template.chatShow.helpers({
   },
 
   'getOnline':function(){
-      return null;
+      let chatId = this._id;
+      let name = Chatrooms.findOne({_id: chatId}).name;
+      let joinedObject = {};
+      joinedObject[name] = true;
+      console.log(joinedObject);
+      let exists = Meteor.users.find({$and:[{ "status.online": true }, joinedObject]});
+      return exists;
+        
   },
   'getOffline':function(){
-      return null;
+      let chatId = this._id;
+      let name = Chatrooms.findOne({_id: chatId}).name;
+      let joinedObject = {};
+      joinedObject[name] = true;
+      console.log(joinedObject);
+      let exists = Meteor.users.find({$and:[{ "status.online": false }, joinedObject]});
+      return exists;
   },
   'getNameColor': function(){
     let id = Meteor.userId();

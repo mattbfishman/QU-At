@@ -24,5 +24,9 @@ Meteor.methods({
     'joinGroup'(newId, setObject){
         Account.update({_id:newId}, {$set:setObject});
     },
+    'updateGroup'(id, setGroup){
+      Meteor.users.update({"_id": id},
+        {$set: setGroup});
+    },
 
 });
